@@ -1,0 +1,29 @@
+@import "bourbon/bourbon";
+@import "neat/neat";
+@import "standard";
+
+
+/* strange that clearfix is not in standard css*/
+.cf:before,
+.cf:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+
+.cf:after {
+  clear: both;
+}
+
+/* need a box-sizing rule in standard css */
+* {box-sizing: border-box;}
+
+@mixin vertical-align {
+	position: relative;
+	top: 50%;
+	@include transform(translateY(-50%));
+}
+
+body {
+  font-size: 14px;
+  width: 100%;
+}
