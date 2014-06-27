@@ -1,0 +1,19 @@
+<header class="filters-header">
+  Filter your search results
+  <span class="filters-header-icon icon-arrow-right"></span>
+</header>
+<div class="filters-wrapper">
+  <% 7.times do |i| %>
+  <details class="filter-section" open>
+    <summary>Filter section <%= i %></summary>
+    <ol class="filter-items">
+      <% 4.times do %>
+      <li>
+        <input type="checkbox">
+        <label>Item Label</label>
+      </li>
+      <% end %>
+    </ol>
+  </details>
+  <% end %>
+</div>

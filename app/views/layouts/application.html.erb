@@ -7,8 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<header class="worko-header">
+  <h5>Workopolis Header</h5>
+</header>
+<div class="container cf">
+  <%= yield %> 
+</div>
+<footer class="worko-footer">Workpolis Footer</footer>
 </body>
 </html>

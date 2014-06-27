@@ -1,1 +1,30 @@
-hello world
+<header class="page-header">
+  <h1>Header Bryant Medium 36px</h1>
+</header>
+<form class="search-result-tools cf">
+  <label>
+    Sort by
+    <select>
+      <option>Newest</option>
+      <option>Nyan Nyan Cat</option>
+      <option>Woof woof dog</option>
+    </select>
+  </label>
+</form>
+<main class="search-results-container">
+  <%= render "search_results_main" %>
+</main>
+<aside class="right-sidebar-container">
+<%= 3.times do %>
+  <div class="worko-box">
+    <h2 class="worko-heading">Sidebar #{i}</h2>
+    <ul>
+      <%= 3.times do %>
+      <li>
+        <a>List item #{i}</a>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+</aside>

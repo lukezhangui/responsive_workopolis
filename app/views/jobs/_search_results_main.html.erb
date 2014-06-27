@@ -1,0 +1,19 @@
+<div class="search-result-pagination cf">
+  <%= render "search_results_pagination" %>
+</div>
+<section class="filters-container">
+  <%= render "filter" %>
+</section>
+<div class="search-results">
+  <section class="featured-jobs-container">
+    <header>Featured Jobs</header>
+  </section>
+  <section class="jobs-container">
+    <%= 10.times do %>
+      <%= render partial: "job", collection: @jobs %>
+    <% end %>
+  </section>
+</div> 
+<div class="search-result-pagination page-bottom cf">
+  <%= render "search_results_pagination" %>
+</div>
