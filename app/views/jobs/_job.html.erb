@@ -1,13 +1,15 @@
+<!-- individual job posting in the searchresults page -->
 <div class="job-container cf">
   <div class="thumbnail-col">
-    <img class="thumbnail" src="http://placekitten.com/g/100/100" /></div>
+    <img class="thumbnail" src="http://placekitten.com/g/88/31" /></div>
   <div class="description-col">
-    <a class="job-title"><%= job.title %></a>
-    <div class="company-name"><%= job.company %></div>
-    <div class="address">Toronto, Ontario</div>
+    <!-- <a class="job-title"><%= job.title %></a> -->
+    <%= link_to job.title, job %>
+    <div class="company-name"><%= job.company.name %></div>
+    <div class="address"><%= job.location %></div>
   </div>
   <div class="misc-col">
     <div class="new">New- 18px</div>
-    <div class="date">lorem.date</div>
+    <div class="date"><%= (job.created_at).strftime("%d %b %y") %></div>
   </div>
 </div>

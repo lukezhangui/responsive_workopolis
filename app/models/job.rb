@@ -1,13 +1,13 @@
-class Job
-attr_reader :title, :location, :company
+class Job < ActiveRecord::Base
+  paginates_per 25
+  belongs_to :company
 
-  def self.all
-    (1..25).map { |job| new }
+  def self.search(search)
+    if search
+      where('title LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
   end
 
-  def initialize
-    @title = WorkoIpsum.job_title
-    @location = Faker::Address.street_address
-    @company = "#{Faker::Company.name} #{Faker::Company.suffix}"
-  end
 end

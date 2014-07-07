@@ -9,9 +9,7 @@
     <header>Featured Jobs</header>
   </section>
   <section class="jobs-container">
-    <%= 10.times do %>
       <%= render partial: "job", collection: @jobs %>
-    <% end %>
   </section>
 </div> 
 <div class="search-result-pagination page-bottom cf">

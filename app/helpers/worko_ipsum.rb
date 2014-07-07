@@ -44,13 +44,13 @@ module WorkoIpsum
 
       def self.worko_sentences(total, type = nil)
         (1..total).map do
-          randm(type == :b2b ? @b2b_speak : @b2c_speak)
+          (type == :b2b ? @b2b_speak : @b2c_speak).sample
         end.join('. ')
       end
 
       def self.worko_paragraphs(total, type = nil)
         (1..total).map do
-          self.worko_sentences(randm(2..7), type).capitalize
+          self.worko_sentences(rand(2..7), type).capitalize
         end.join("\n\n")
       end
 end
