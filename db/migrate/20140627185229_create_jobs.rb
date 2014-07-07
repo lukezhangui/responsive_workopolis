@@ -8,6 +8,7 @@ class CreateJobs < ActiveRecord::Migration
       t.string :education
       t.string :category
       t.string :career_level
+      t.text :description
       t.references :company, index: true
 
       t.timestamps

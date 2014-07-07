@@ -1,1 +1,104 @@
-<%= @job.title %>
+<div class="jobview-container">
+  <header>
+  <div class="back-to-results"><a href="javascript:history.back();"><span class="icon-arrow-left"></span> back to results - 18px</a></div>
+  <div class="job-heading">
+    <img src="http://placekitten.com/600/600">
+    <div class="info">
+      <div class="job-title"><%= @job.title %></div>
+      <div class="company-name"><%= @job.company.name %></div>
+      <div class="city-province"><%= @job.location %></div>
+      <div class="posted-when"><%= (@job.created_at).strftime("%d %b %y") %></div>
+    </div>
+  </div>
+</header>
+
+
+<div class="job-description">
+  <div class="navigation top">
+    <a class="prev" href="javascript:history.back();"><span class="icon-arrow-left"></span> previous - 18px</a>
+    <a class="next" href="javascript:history.forward();">next <span class="icon-arrow-right"></span></a>
+  </div>
+
+  <div class="copy">
+    <p>Team Lead, Field Sales (Contract - 12 months)</p>
+    <p>Information on Division/Hiring Department/Career Opportunity:</p>
+    <p>Bell Canada’s Field Sales team is looking for a highly motivated and sales driven individual to assume the role of Team Lead, Field Sales.  The objective is to drive RGU growth and penetration within MDU (multi-dwelling unit) and SFU (single family unit) Markets through sales leadership, development and coaching of a team of Field Sales Representatives.</p>
+    <p>The successful candidate will be responsible for performance management of the field sales team, development and assignment of key growth territories, ongoing recruitment 
+of new sales representatives, sales management, field training and consumer level support.</p>
+    <p>Further, this candidate will be responsible for assessing, analyzing and tracking performance to plan, coordinating with cross functional marketing groups and developing 
+strong take to market plans and enablers to ensure optimal Field sales success, RGU growth and penetration. </p>
+    <p>Job Duties/Accountabilities</p>
+    <ul>
+      <li>Manage a team of field sales representatives located across the Southwestern Ontario 
+  and Golden Horseshoe region.
+      <li>Hiring of new sales representatives
+      <li>Tracking and analyzing sales trends relative to target.
+      <li>Manage the territory of MDU/SFUs and ensure full coverage
+      <li>Identify the sales enablers required.
+      <li>Provide market intelligence to Account Executives and Marketing
+      <li>Track and evaluate budgets and costs of field managers.
+      <li>Additional duties as required.
+    </ul>
+    <p>Critical Qualifications/Competencies:</p>
+    <ul> 
+      <li>This position requires a minimum of 2-5 years experience in leading a sales team.
+      <li>Strong interpersonal and communication skills.
+      <li>Excellent organizational skills.
+    </ul>
+    <p>Preferred skills/competencies:</p>
+    <ul>
+      <li>Knowledge of the Telecommunications Industry.
+      <li>Experience with the MDU Market.
+      <li>Proficiency in PC software applications (Word, Excel, PowerPoint and Adobe)</li>
+    </ul>
+  </div>
+
+  <div class="navigation bottom">
+    <a class="prev" href="javascript:history.back();"><span class="icon-arrow-left"></span> previous - 18px</a>
+    <a class="next" href="javascript:history.forward();">next <span class="icon-arrow-right"></span></a>
+  </div>
+</div>
+
+<div class="secondary-content">
+  <div class="worko-box job-details">
+    <h2 class="worko-heading">h2. sidebar 18px</h2>
+    <div class="job-type">
+      <label>Job Type:</label>
+      <span>Full Time</span>
+    </div>
+    <div class="job-type">
+      <label>Career Level:</label>
+      <span><%= @job.career_level %></span>
+    </div>
+    <div class="job-type">
+      <label>Education:</label>
+      <span><%= @job.education %></span>
+    </div>
+    <div class="job-type">
+      <label>Job Function:</label>
+      <span><a href="#sales-and-business-development"><%= @job.category %></a></span>
+    </div>
+    <a class="btn2 btn-xlrg apply-now" href="#apply_now">Apply Now</a>
+  </div>
+  <div class="worko-box social-links">
+    <h2 class="worko-heading">h2. sidebar 18px</h2>
+    <span class="icon-facebook"></span>
+    <span class="icon-linkedin"></span>
+    <span class="icon-twitter"></span>
+    <span class="icon-email"></span>
+  </div>
+  <div class="worko-box recent-jobs">
+    <h2 class="worko-heading">h2. sidebar 18px</h2>
+    <ul class="recent-job-list">
+    <% 3.times do |i| %>
+      <li class="recent-job">
+        <div class="job-title"><a href="#job-title-<%=i+1%>">Job Title # <%=i+1%> - 14px (Hyperlink)</a></div>
+        <div class="company-name"><%= @job.company.name %></div>
+        <div class="city-province"><%= @job.location %></div>
+      </li>
+    <% end %>
+    </ul>
+    <a class="call-to-action" href="#call-to-action">Call to action - 14px &raquo;</a>
+  </div>
+</div>
+</div>
