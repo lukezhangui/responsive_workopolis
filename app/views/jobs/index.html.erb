@@ -15,16 +15,5 @@
   <%= render "search_results_main" %>
 </main>
 <aside class="right-sidebar-container">
-<%= 3.times do %>
-  <div class="worko-box">
-    <h2 class="worko-heading">Sidebar #{i}</h2>
-    <ul>
-      <%= 3.times do %>
-      <li>
-        <a>List item #{i}</a>
-      </li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render "sidebar" %>
 </aside>

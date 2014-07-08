@@ -1,7 +1,10 @@
 @import "bourbon/bourbon";
+$max-width: em(1000);
 @import "neat/neat";
 @import "standard";
+@import "global/variables";
 @import "jobview";
+@import "header";
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700);
 
 /* strange that clearfix is not in standard css*/
@@ -75,22 +78,13 @@ a {
   /*@include link-title();
   &:hover {@include link-hover()};*/
   font-size: 16px;
+  text-decoration: none;
+  color: #555;
+  border-bottom: 1px solid $color-primary-darkgreen;
 }
 
 .filters-container, .search-results, .worko-box {
   background: white;
-}
-
-.worko-header {
-  height: 60px;
-  width: 100%;
-  border-bottom: 3px solid $color-primary-lightgreen;
-  @extend %module-background;
-  h5 {
-    @include vertical-align;
-    text-align: center;
-    color: #bbb;
-  }
 }
 
 .worko-footer {
@@ -173,35 +167,32 @@ a {
       font-size: 18px;
       font-weight: bold;
       padding: 10px 5px;
-
-      .filters-header-icon {
-        float: right;
-        color: $color-grey;
-      }
+    }
+    .filters-header-icon, .filter-section-icon {
+      float: right;
+      color: $color-grey;
     }
     .filter-section {
       border-top: $grey-border;
     }
-    .filter-section summary {
+    .filter-section header {
       border-left: 5px solid #aaa;
       padding: 10px 5px;
       font-size: 16px;
-
-      &:focus {
-        outline: none;
-      }
-      &::-webkit-details-marker {
-        //temporary solution
-        float: right;
-        opacity: 0.4;
-      }
     }
     .filter-items {
       list-style: none;
       padding: 0 10px;
       
+      &.concise {
+        li:nth-child(n+6){
+          display: none;
+        }
+      }
+
       li {
         min-height: 27px;
+        
         &:hover{
           [type="checkbox"]:not(:checked) + label:before,
           [type="checkbox"]:checked + label:before {
@@ -210,7 +201,7 @@ a {
           label {
             text-decoration: underline;
           }
-      }
+        }
       }
 
       /* Base for label styling */
@@ -277,6 +268,11 @@ a {
         font-size: 12px;
       }
     }
+    .expandFilterItems {
+      float: right;
+      margin-bottom: 10px;
+      margin-right: 5px;
+    }
   }
 
   .job-container {
@@ -305,6 +301,11 @@ a {
         margin-bottom: 5px;
         font-size: 19px;
         font-weight: 600;
+        &.bold {
+          font-weight: bold;
+          color: #222;
+          border-width: 2px;
+        }
       }
       .date {
         border-left: 1px solid #ccc;
@@ -318,26 +319,30 @@ a {
       & * {
         @include vertical-align;
       }
-      .new {
+      div {
         top: 3px;
         right: -10px;
         padding: 5px;
         width: 100px;
-        background: $color-secondary-darkergreen; 
         color: white;
         position: absolute;
+      }
+      .new {
+        background: $color-secondary-darkergreen; 
+      }
+      .featured {
+        background: $color-secondary-darkblue;
       }
     }
   }
 
   .featured-jobs-container {
-    background: #ddd;
+    background: #f7f7f7;
     header {
       padding: 5px;
+      font-size: 21px;
     }
-    .job-title {
-      font-size: 18px !important;
-    }
+    border-bottom: 3px solid $color-secondary-darkblue;
   }
 }
 
@@ -346,5 +351,19 @@ a {
 
   .worko-box {
     margin-bottom: 20px;
+    ul, li {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+  }
+  .job-alert-container {
+    button {
+      float: right;
+      margin-top: 10px;
+    }
+  }
+  .expandRelatedSearches {
+    float: right;
   }
 }

@@ -1,0 +1,205 @@
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  @include transform(translateY(-50%));
+}
+
+
+.worko-header {
+  background: #fff;
+  .leaderboard-container{
+    display: block;
+    width: 100%;
+    min-height: 100px; 
+  }
+  .leaderboard-ad {
+    margin: 0 auto;
+    padding-top: 10px;
+    display: block;
+  }
+
+  .workopolis-logo {
+    margin:30px 0 0 -250px;
+    float:left;
+  }
+
+  .header-container{
+  @include outer-container();
+    position:relative;
+    height: 190px;  
+  }
+
+  .top-navigation{
+   width:700px;
+   float:left;
+   margin-top:65px;
+
+   a{
+    color:#333;
+    text-decoration:none;
+    background-image:none;
+    border-bottom: none;
+    padding:5px 10px;
+    font-size:16px;
+    font-family: $font-stack-header-med;
+
+    &:first-of-type:after{
+      content:'v';
+      margin-left:5px;
+      margin-bottom:-5px;
+      font-family:'icomoon-ultimate';
+    }
+
+    &:hover{
+      color:#69be28;
+      background-image:none;
+    }
+  }
+}
+
+.employer-link{
+  background:#007ac9;
+  display:inline-block;
+  color:#fff;
+  float:right;
+  padding:0 10px;
+  margin-top:40px;
+
+  .icon-notebook{
+    font-size:18px;
+  }
+
+  a{
+    color:#fff;
+    width:inherit;
+    font-weight:bold;
+    display:inline-block;
+    text-decoration:none;
+    padding:10px 10px;
+    background-image:none;
+
+    &:after{
+      content:"u";
+      font-family:'icomoon-ultimate';
+      font-size:16px;
+      margin-left:10px;
+    }
+  }
+}
+
+.topnav-green-bar {
+  height: 50px;
+  width: 100%;
+  background: $color-primary-lightgreen;
+  
+  .web-logo {
+    float:left;
+    display: inline-block;
+    margin: 5px 10px 0 0;
+  }
+}
+
+.global-search{
+  position:relative;
+  width:960px;
+  margin:0 auto;
+  overflow:hidden;
+  transition:all .4s ease .1s;
+
+  form{ 
+    display:block;
+    float:left;
+  }
+
+  .search-field-logo{
+    display:inline-block;
+    position:relative;
+    margin-top:5px;
+    margin-right:20px;
+    float:left;
+  }
+
+
+  p{
+    width:325px;
+    display:inline-block;
+    margin-right:20px;
+    transition:all.3s ease .1s;
+
+    &:nth-of-type(2){
+      transform:scaleX(1);
+    }
+
+    input{
+      padding:0 10px;
+    }
+  }
+
+  .submit-search{
+    border-radius:0;
+    font-size:16px;
+    transition:all.3s ease .1s;
+    margin-top:10px;
+    width:200px;
+    position:relative;
+    color:#fff !important;
+    background:#427730;
+    box-shadow:3px 3px 1px #333;
+
+    .icon-search{
+      position:absolute;
+      left:20px;
+      margin-right:10px;
+    }
+  }
+}
+
+.dropdown-browse-jobs  {
+  display: none;
+  width: 100%;
+  background:$color-secondary-yellowgreen;
+  position: absolute;
+  z-index: 10;
+  top:195px;
+  .dropdown-container {
+    @include outer-container();
+    background:$color-background-grey;
+    margin-bottom: 5px;
+    & > div {
+      @include span-columns(3 of 12);
+      min-height: 250px;
+      .dropdown-menu-item {
+        padding: 10px 0 0 0;
+      }
+      a {
+        line-height: 1.3;
+      }
+    }
+    .dropdown-secondary-menu {
+      background:white;
+      a {
+        padding: 10px 25px 10px 10px;
+        display: block;
+        text-decoration: none;
+        border-left: 5px solid white;
+        position: relative;
+        color:#333;
+        font-weight:bold;
+        background-image: none;
+        &:hover {
+          /*font-weight:bold;*/
+          border-color: $color-primary-lightgreen;
+          background: $color-background-grey;
+        }
+        &:hover:after {
+          content: '\42';
+          font-family: "icomoon-ultimate";
+          @include vertical-align;
+          position: absolute;
+          right: 0;
+        }
+      }
+    }
+  }
+}
+}

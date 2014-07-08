@@ -1,0 +1,31 @@
+<div class="worko-box job-alert-container">
+  <h2 class="worko-heading">Create Job Alert</h2>
+  <form>
+    <label>Email: <input type="email" placeholder="User@email.com"></label>
+    <button type="submit" class="btn1 btn-lrg">Create Alert</button>
+  </form>
+</div>
+
+<div class="worko-box related-searches-container">
+<h2 class="worko-heading">Related Searches</h2>
+  <ul>
+    <% 5.times do %>
+      <li>
+        <a><%= WorkoIpsum.job_title %></a>
+      </li>
+    <% end %>
+  </ul>
+  <a class="expandRelatedSearches" href="#">Show more</a>
+</div>
+
+<div class="worko-box recently-viewed-jobs-container">
+<h2 class="worko-heading">Recently Viewed Jobs</h2>
+  <ul>
+    <% 3.times do %>
+    <li>
+      <a href="#"><%= WorkoIpsum.job_title %></a>
+    </li>
+    <% end %>
+  </ul>
+</div>
+

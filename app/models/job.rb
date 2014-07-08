@@ -17,4 +17,8 @@ class Job < ActiveRecord::Base
   def is_recent
     rand(10) < 2
   end
+
+  def is_bold_or_featured
+    self.is_bold || self.is_featured
+  end
 end

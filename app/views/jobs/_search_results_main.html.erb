@@ -7,6 +7,7 @@
 <div class="search-results">
   <section class="featured-jobs-container">
     <header>Featured Jobs</header>
+      <%= render partial: "job", collection: @featured_jobs %>
   </section>
   <section class="jobs-container">
       <%= render partial: "job", collection: @jobs %>

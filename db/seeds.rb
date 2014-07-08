@@ -27,6 +27,8 @@ Company.all.each do |company|
       industry: industry.sample,
       education: education.sample,
       category: category.sample,
-      career_level: career_level.sample)
+      career_level: career_level.sample,
+      is_bold: rand(10) < 2,
+      is_featured: rand(10) < 1)
   end
 end

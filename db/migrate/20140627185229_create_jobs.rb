@@ -9,6 +9,8 @@ class CreateJobs < ActiveRecord::Migration
       t.string :category
       t.string :career_level
       t.text :description
+      t.boolean :is_bold
+      t.boolean :is_featured
       t.references :company, index: true
 
       t.timestamps

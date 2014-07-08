@@ -6,20 +6,26 @@
 <div class="filters-wrapper">
   <% @filters.each do |filter_name, filter| %>
 
-  <details class="filter-section" open>
-    <summary><%= filter_name %></summary>
-    <ol class="filter-items cf">
+  <aside class="filter-section cf">
+    <header class="filter-section-header" data-filter-state="open">
+      <%= filter_name %>
+      <span class="filter-section-icon icon-arrow-right"></span>
+    </header>
+    <ol class="filter-items concise cf">
 
       <% filter.each_with_index do |filter_item, index|%>
       <li class="cf">
         <input type="checkbox" id="<%= filter_item + index.to_s %>">
         <label for="<%= filter_item + index.to_s %>"></label>
-        <label class="filter-item-label" for="<%= filter_item + index.to_s %>"><%= filter_item %></label>
+        <label class="filter-item-label" for="<%= filter_item + index.to_s %>">
+        <%= filter_item %> (<%= rand(1..30) %>)</label>
       </li>
       <% end %>
-
     </ol>
-  </details>
+    <% if (filter.length > 5) %>
+    <a href="#" class="expandFilterItems">Show more</a>
+    <% end %>
+  </aside>
 
   <% end %>
 </div>
