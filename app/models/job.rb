@@ -10,4 +10,11 @@ class Job < ActiveRecord::Base
     end
   end
 
+  def date_posted
+    (self.created_at).strftime("%d %b %y")
+  end
+
+  def is_recent
+    rand(10) < 2
+  end
 end

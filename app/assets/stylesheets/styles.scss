@@ -2,6 +2,7 @@
 @import "neat/neat";
 @import "standard";
 @import "jobview";
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700);
 
 /* strange that clearfix is not in standard css*/
 .cf:before,
@@ -26,6 +27,7 @@
 body {
   font-size: 14px;
   width: 100%;
+  font-family: 'Source Sans Pro';
 }
 
 $grey-border: 1px solid #ccc;
@@ -63,15 +65,16 @@ $grey-border: 1px solid #ccc;
 }
 
 body {
-  background: #eee;
+  background: #e5e5e5;
   padding: 0;
   margin: 0;
   font-size: 14px;
 }
 
 a {
-  @include link-title();
-  &:hover {@include link-hover()};
+  /*@include link-title();
+  &:hover {@include link-hover()};*/
+  font-size: 16px;
 }
 
 .filters-container, .search-results, .worko-box {
@@ -195,36 +198,122 @@ a {
     }
     .filter-items {
       list-style: none;
+      padding: 0 10px;
+      
+      li {
+        min-height: 27px;
+        &:hover{
+          [type="checkbox"]:not(:checked) + label:before,
+          [type="checkbox"]:checked + label:before {
+            border-color: #333;
+          }
+          label {
+            text-decoration: underline;
+          }
+      }
+      }
 
+      /* Base for label styling */
+      [type="checkbox"]:not(:checked),
+      [type="checkbox"]:checked {
+        position: absolute;
+        left: -9999px;
+      }
+      [type="checkbox"]:not(:checked) + label,
+      [type="checkbox"]:checked + label {
+        position: relative;
+        padding-left: 25px;
+        cursor: pointer;
+      }
+
+      /* checkbox aspect */
+      [type="checkbox"]:not(:checked) + label:before,
+      [type="checkbox"]:checked + label:before {
+        content: '';
+        position: absolute;
+        left:0; top: 2px;
+        width: 17px; height: 17px;
+          border: 1px solid #bbb;
+          background-color: #fff;
+          display: inline-block;
+      }
+      /* checked mark aspect */
+      [type="checkbox"]:not(:checked) + label:after,
+      [type="checkbox"]:checked + label:after {
+        content: '✔';
+        position: absolute;
+        top: 0; left: 4px;
+        font-size: 14px;
+        color: #777;
+        transition: all .2s;
+      }
+      /* checked mark aspect changes */
+      [type="checkbox"]:not(:checked) + label:after {
+        opacity: 0;
+        transform: scale(0);
+      }
+      [type="checkbox"]:checked + label:after {
+        opacity: 1;
+        transform: scale(1);
+      }
+      /* disabled checkbox */
+      [type="checkbox"]:disabled:not(:checked) + label:before,
+      [type="checkbox"]:disabled:checked + label:before {
+        box-shadow: none;
+        border-color: #bbb;
+        background-color: #ddd;
+      }
+      [type="checkbox"]:disabled:checked + label:after {
+        color: #999;
+      }
+      [type="checkbox"]:disabled + label {
+        color: #aaa;
+      }
+      .filter-item-label {
+        float: right;
+        display: inline-block;
+        padding-top: 3px;
+        width: 85%;
+        font-size: 12px;
+      }
     }
   }
 
   .job-container {
     padding: 10px;
-    border-top: 1px solid #aaa;
+    border-top: 5px solid #e5e5e5;
 
     & > div {
-      height: 125px;
+      height: 85px;
     }
     .thumbnail-col {
-      @include span-columns(2 of 8);
+      width: 20%;
+      float: left;
       img {
         border: 1px solid #eee;
         @include vertical-align;
       }
     }
     .description-col {
-      @include span-columns(4 of 8);
-      padding-top: 20px;
+      width: 80%;
+      float: left;
+      padding-top: 6px;
+      font-size: 17px;
+
       .job-title {
-        font-size: 14px;
-        line-height: 1.5;
+        display: inline-block;
+        margin-bottom: 5px;
+        font-size: 19px;
+        font-weight: 600;
+      }
+      .date {
+        border-left: 1px solid #ccc;
+        padding-left: 10px;
+        margin-left: 10px;
       }
     }
     .misc-col {
-      @include span-columns(2 of 8);
-      border-left: 1px dashed #aaa;
-      padding-left: 10px;
+      float: right;
       position: relative;
       & * {
         @include vertical-align;
@@ -233,7 +322,7 @@ a {
         top: 3px;
         right: -10px;
         padding: 5px;
-        width: 100%;
+        width: 100px;
         background: $color-secondary-darkergreen; 
         color: white;
         position: absolute;

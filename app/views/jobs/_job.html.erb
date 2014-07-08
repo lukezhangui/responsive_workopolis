@@ -4,12 +4,14 @@
     <img class="thumbnail" src="http://placekitten.com/g/88/31" /></div>
   <div class="description-col">
     <!-- <a class="job-title"><%= job.title %></a> -->
-    <%= link_to job.title, job %>
+    <%= link_to job.title, job, class: "job-title" %>
     <div class="company-name"><%= job.company.name %></div>
-    <div class="address"><%= job.location %></div>
+    <span class="address"><%= job.location %></span>
+    <span class="date">Posted <%= time_ago_in_words(job.created_at) %> ago</span>
   </div>
   <div class="misc-col">
+    <% if job.is_recent %>
     <div class="new">New- 18px</div>
-    <div class="date"><%= (job.created_at).strftime("%d %b %y") %></div>
+    <% end %>
   </div>
 </div>
