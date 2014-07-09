@@ -2,6 +2,7 @@
 // All this logic will automatically be available in application.js.
 
 $(document).ready(function(){
+
   $('.filters-header').click(function(){
       $('.filters-wrapper').toggle();
 
@@ -20,18 +21,20 @@ $(document).ready(function(){
       //hides all list items and show more link
       $(event.toElement).siblings().hide();
       //changes the arrow icon to an down arrow
-      $(event.toElement).children('.filter-section-icon').removeClass('icon-arrow-right');
-      $(event.toElement).children('.filter-section-icon').addClass('icon-arrow-down');
+      $(event.toElement).children('.filter-section-icon').addClass('icon-arrow-right');
+      $(event.toElement).children('.filter-section-icon').removeClass('icon-arrow-down');
       //finally sets the data-filter-state to closed
       event.toElement.dataset.filterState = "closed";
 
     } else {
-      
+
       $(event.toElement).siblings().show();
       //changes the arrow icon to an down arrow
-      $(event.toElement).children('.filter-section-icon').addClass('icon-arrow-right');
-      $(event.toElement).children('.filter-section-icon').removeClass('icon-arrow-down');
+      $(event.toElement).children('.filter-section-icon').removeClass('icon-arrow-right');
+      $(event.toElement).children('.filter-section-icon').addClass('icon-arrow-down');
       event.toElement.dataset.filterState = "open";
     }
   });
+
+
 });

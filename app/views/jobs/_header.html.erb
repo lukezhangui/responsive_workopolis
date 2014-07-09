@@ -23,22 +23,21 @@
     <section class="topnav-green-bar">
       <div class="global-search">
       <%= image_tag("web-logo.png", class: "web-logo") %>
-        <form>
+        <form action="" method="get">
           <p>
-           <input type="text" class="keyword search-field-trigger" placeholder="Job Title, Keywords" tabindex="1" />
+           <input type="text" id="search" name="search" class="keyword search-field-trigger" placeholder="Job Title, Keywords" tabindex="1" />
          </p> 
          <p>
            <input type="text"  class="location search-field-trigger" placeholder="Location" tabindex="2"/>
          </p>
-
-         <button class="submit-search btn4 search-field-trigger" tabindex="3"><span class="icon-search"></span>Search Jobs</button>
-
+         <button class="submit-search btn4 search-field-trigger" tabindex="3">
+          <span class="icon-search"></span>Search Jobs
+         </button>
        </form>  
      </div>
    </section>
    <div class="dropdown-browse-jobs">
     <div class="dropdown-container">
-
       <div class="dropdown-secondary-menu"> 
         <% 7.times do %>
         <a href="#"><%= WorkoIpsum.job_title %></span></a>
@@ -52,8 +51,5 @@
       </div>
       <% end %>
     </div>
-
-
   </div>
-
 </header>

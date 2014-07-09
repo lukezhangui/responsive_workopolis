@@ -4,6 +4,7 @@ class JobsController < ApplicationController
     all_jobs = Job.search(params[:search]).order("created_at")
     @featured_jobs = all_jobs.where(is_featured: true).sample(3)
     @jobs = all_jobs.where(is_featured: false).page(params[:page]).per(25)
+    @search_parameters = params[:search].nil? ? "all" : params[:search]
 
     @filters = {
       "Job Function" => Job.all.map {|job| job.category}.uniq,
